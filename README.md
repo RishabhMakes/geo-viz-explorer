@@ -7,7 +7,7 @@ An interactive D3.js geographic visualization widget that displays hierarchical 
 - 🌍 **Interactive World Map** - Rendered with D3.js using Natural Earth projection
 - 📍 **Hierarchical Markers** - Three-level hierarchy: continents → countries → cities/datacenters
 - 🖱️ **Rich Interactions** - Single click selection, double-click zoom, multi-select support
-- 🔍 **Smart Zoom** - Automatic hierarchy level transitions based on zoom scale
+- 🔍 **Smart Zoom** - Double-click to auto-frame all children; automatic hierarchy transitions
 - 🔄 **Smooth Animations** - Elegant transitions for zoom, pan, and marker updates
 - 🎛️ **Filtering System** - Filter by region, location, and datacenter
 - 📱 **Responsive Design** - Works on desktop, tablet, and mobile
@@ -144,9 +144,11 @@ geoWidget.destroy();
 - Does NOT zoom the map
 
 ### Double Click
-- Zooms and pans to the clicked marker
-- Reveals children at the next hierarchy level
+- Calculates bounding box of all children and zooms to fit them in view
+- Automatically pans and scales to show all child locations with optimal framing
+- Reveals children at the next hierarchy level with smooth animation
 - Parent marker fades out, children fade in
+- Example: Double-click "Asia" to see Japan, Singapore, and India all in frame
 
 ### Multi-Selection
 - **Ctrl/Cmd + Click**: Add to selection

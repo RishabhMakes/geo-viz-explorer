@@ -744,27 +744,82 @@ class GeoMapWidget {
      * Zoom to a marker and reveal its children
      */
     zoomToMarkerAndRevealChildren(marker) {
-        const [lon, lat] = marker.geometry.coordinates;
         const currentLevel = this.state.currentZoomLevel;
         
-        // Calculate target zoom level
-        let targetScale;
-        if (currentLevel === 1) {
-            targetScale = this.zoomThresholds.country + 0.5;
-        } else if (currentLevel === 2) {
-            targetScale = this.zoomThresholds.city + 0.5;
-        } else {
-            // Already at deepest level
-            targetScale = Math.min(this.state.zoomTransform.k * 1.5, 12);
+        // Check if marker has children
+        if (!marker.children || marker.children.length === 0) {
+            this.log('No children to reveal');
+            return;
         }
         
         // Set parent context for child rendering
         this.state.currentParentId = marker.id;
         
-        // Calculate zoom transform
-        const [x, y] = this.projection([lon, lat]) || [this.width / 2, this.height / 2];
+        // Collect all children coordinates
+        const childCoordinates = marker.children
+            .filter(child => child.geometry && child.geometry.coordinates)
+            .map(child => child.geometry.coordinates);
+        
+        // If no valid children coordinates, fall back to parent
+        if (childCoordinates.length === 0) {
+            const [lon, lat] = marker.geometry.coordinates;
+            const targetScale = this.getTargetScaleForLevel(currentLevel);
+            const [x, y] = this.projection([lon, lat]) || [this.width / 2, this.height / 2];
+            const transform = d3.zoomIdentity
+                .translate(this.width / 2 - x * targetScale, this.height / 2 - y * targetScale)
+                .scale(targetScale);
+            
+            this.svg.transition()
+                .duration(800)
+                .ease(d3.easeCubicInOut)
+                .call(this.zoom.transform, transform);
+            return;
+        }
+        
+        // Calculate bounding box of all children
+        const bbox = ProjectionUtils.calculateBoundingBox(childCoordinates);
+        
+        if (!bbox) {
+            this.log('Could not calculate bounding box');
+            return;
+        }
+        
+        // Project bounding box corners to screen coordinates
+        const topLeft = this.projection([bbox.minLon, bbox.maxLat]);
+        const bottomRight = this.projection([bbox.maxLon, bbox.minLat]);
+        
+        if (!topLeft || !bottomRight) {
+            this.log('Could not project bounding box');
+            return;
+        }
+        
+        // Calculate the dimensions of the bounding box in screen space
+        const bboxWidth = Math.abs(bottomRight[0] - topLeft[0]);
+        const bboxHeight = Math.abs(bottomRight[1] - topLeft[1]);
+        
+        // Calculate center of bounding box in screen coordinates
+        const centerX = (topLeft[0] + bottomRight[0]) / 2;
+        const centerY = (topLeft[1] + bottomRight[1]) / 2;
+        
+        // Calculate scale to fit with padding (70% of available space)
+        const padding = 0.7;
+        const scaleX = (this.width * padding) / Math.max(bboxWidth, 1);
+        const scaleY = (this.height * padding) / Math.max(bboxHeight, 1);
+        let targetScale = Math.min(scaleX, scaleY);
+        
+        // Ensure minimum scale for hierarchy level transition
+        const minScaleForLevel = this.getTargetScaleForLevel(currentLevel);
+        targetScale = Math.max(targetScale, minScaleForLevel);
+        
+        // Clamp to zoom extent
+        targetScale = Math.min(Math.max(targetScale, 1), 12);
+        
+        // Calculate transform to center the bounding box
         const transform = d3.zoomIdentity
-            .translate(this.width / 2 - x * targetScale, this.height / 2 - y * targetScale)
+            .translate(
+                this.width / 2 - centerX * targetScale,
+                this.height / 2 - centerY * targetScale
+            )
             .scale(targetScale);
         
         // Animate zoom
@@ -772,6 +827,19 @@ class GeoMapWidget {
             .duration(800)
             .ease(d3.easeCubicInOut)
             .call(this.zoom.transform, transform);
+    }
+
+    /**
+     * Get target zoom scale for a hierarchy level
+     */
+    getTargetScaleForLevel(currentLevel) {
+        if (currentLevel === 1) {
+            return this.zoomThresholds.country + 0.5;
+        } else if (currentLevel === 2) {
+            return this.zoomThresholds.city + 0.5;
+        } else {
+            return Math.min(this.state.zoomTransform.k * 1.5, 12);
+        }
     }
 
     /**
