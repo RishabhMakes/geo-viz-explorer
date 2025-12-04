@@ -1,0 +1,794 @@
+{
+  "type": "GeoLocations",
+  "GeoLocations": [
+    {
+      "id": "continent-asia",
+      "label": "Asia",
+      "properties": [
+        {
+          "propertyKey": "CategoryName",
+          "propertyValue": "Region"
+        },
+        {
+          "propertyKey": "CategoryValue",
+          "propertyValue": "Asia"
+        }
+      ],
+      "geometry": {
+        "type": "Point",
+        "coordinates": [100.6197, 34.0479]
+      },
+      "children": [
+        {
+          "id": "country-japan",
+          "label": "Japan",
+          "properties": [
+            {
+              "propertyKey": "CategoryName",
+              "propertyValue": "Location"
+            },
+            {
+              "propertyKey": "CategoryValue",
+              "propertyValue": "Japan"
+            }
+          ],
+          "geometry": {
+            "type": "Point",
+            "coordinates": [138.2529, 36.2048]
+          },
+          "children": [
+            {
+              "id": "dc-tokyo-1",
+              "label": "Tokyo DC-1",
+              "properties": [
+                {
+                  "propertyKey": "CategoryName",
+                  "propertyValue": "Datacentre"
+                },
+                {
+                  "propertyKey": "CategoryValue",
+                  "propertyValue": "Tokyo DC-1"
+                },
+                {
+                  "propertyKey": "Status",
+                  "propertyValue": "Active"
+                }
+              ],
+              "geometry": {
+                "type": "Point",
+                "coordinates": [139.6917, 35.6895]
+              }
+            },
+            {
+              "id": "dc-tokyo-2",
+              "label": "Tokyo DC-2",
+              "properties": [
+                {
+                  "propertyKey": "CategoryName",
+                  "propertyValue": "Datacentre"
+                },
+                {
+                  "propertyKey": "CategoryValue",
+                  "propertyValue": "Tokyo DC-2"
+                },
+                {
+                  "propertyKey": "Status",
+                  "propertyValue": "Active"
+                }
+              ],
+              "geometry": {
+                "type": "Point",
+                "coordinates": [139.7525, 35.6762]
+              }
+            },
+            {
+              "id": "dc-osaka",
+              "label": "Osaka DC",
+              "properties": [
+                {
+                  "propertyKey": "CategoryName",
+                  "propertyValue": "Datacentre"
+                },
+                {
+                  "propertyKey": "CategoryValue",
+                  "propertyValue": "Osaka DC"
+                },
+                {
+                  "propertyKey": "Status",
+                  "propertyValue": "Active"
+                }
+              ],
+              "geometry": {
+                "type": "Point",
+                "coordinates": [135.5022, 34.6937]
+              }
+            }
+          ]
+        },
+        {
+          "id": "country-singapore",
+          "label": "Singapore",
+          "properties": [
+            {
+              "propertyKey": "CategoryName",
+              "propertyValue": "Location"
+            },
+            {
+              "propertyKey": "CategoryValue",
+              "propertyValue": "Singapore"
+            }
+          ],
+          "geometry": {
+            "type": "Point",
+            "coordinates": [103.8198, 1.3521]
+          },
+          "children": [
+            {
+              "id": "dc-singapore-1",
+              "label": "Singapore DC-1",
+              "properties": [
+                {
+                  "propertyKey": "CategoryName",
+                  "propertyValue": "Datacentre"
+                },
+                {
+                  "propertyKey": "CategoryValue",
+                  "propertyValue": "Singapore DC-1"
+                },
+                {
+                  "propertyKey": "Status",
+                  "propertyValue": "Active"
+                }
+              ],
+              "geometry": {
+                "type": "Point",
+                "coordinates": [103.8198, 1.3521]
+              }
+            },
+            {
+              "id": "dc-singapore-2",
+              "label": "Singapore DC-2",
+              "properties": [
+                {
+                  "propertyKey": "CategoryName",
+                  "propertyValue": "Datacentre"
+                },
+                {
+                  "propertyKey": "CategoryValue",
+                  "propertyValue": "Singapore DC-2"
+                },
+                {
+                  "propertyKey": "Status",
+                  "propertyValue": "Active"
+                }
+              ],
+              "geometry": {
+                "type": "Point",
+                "coordinates": [103.85, 1.36]
+              }
+            }
+          ]
+        },
+        {
+          "id": "country-india",
+          "label": "India",
+          "properties": [
+            {
+              "propertyKey": "CategoryName",
+              "propertyValue": "Location"
+            },
+            {
+              "propertyKey": "CategoryValue",
+              "propertyValue": "India"
+            }
+          ],
+          "geometry": {
+            "type": "Point",
+            "coordinates": [78.9629, 20.5937]
+          },
+          "children": [
+            {
+              "id": "dc-mumbai",
+              "label": "Mumbai DC",
+              "properties": [
+                {
+                  "propertyKey": "CategoryName",
+                  "propertyValue": "Datacentre"
+                },
+                {
+                  "propertyKey": "CategoryValue",
+                  "propertyValue": "Mumbai DC"
+                },
+                {
+                  "propertyKey": "Status",
+                  "propertyValue": "Active"
+                }
+              ],
+              "geometry": {
+                "type": "Point",
+                "coordinates": [72.8777, 19.076]
+              }
+            },
+            {
+              "id": "dc-bangalore",
+              "label": "Bangalore DC",
+              "properties": [
+                {
+                  "propertyKey": "CategoryName",
+                  "propertyValue": "Datacentre"
+                },
+                {
+                  "propertyKey": "CategoryValue",
+                  "propertyValue": "Bangalore DC"
+                },
+                {
+                  "propertyKey": "Status",
+                  "propertyValue": "Active"
+                }
+              ],
+              "geometry": {
+                "type": "Point",
+                "coordinates": [77.5946, 12.9716]
+              }
+            },
+            {
+              "id": "dc-chennai",
+              "label": "Chennai DC",
+              "properties": [
+                {
+                  "propertyKey": "CategoryName",
+                  "propertyValue": "Datacentre"
+                },
+                {
+                  "propertyKey": "CategoryValue",
+                  "propertyValue": "Chennai DC"
+                },
+                {
+                  "propertyKey": "Status",
+                  "propertyValue": "Active"
+                }
+              ],
+              "geometry": {
+                "type": "Point",
+                "coordinates": [80.2707, 13.0827]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "continent-europe",
+      "label": "Europe",
+      "properties": [
+        {
+          "propertyKey": "CategoryName",
+          "propertyValue": "Region"
+        },
+        {
+          "propertyKey": "CategoryValue",
+          "propertyValue": "Europe"
+        }
+      ],
+      "geometry": {
+        "type": "Point",
+        "coordinates": [9.1405, 48.6908]
+      },
+      "children": [
+        {
+          "id": "country-germany",
+          "label": "Germany",
+          "properties": [
+            {
+              "propertyKey": "CategoryName",
+              "propertyValue": "Location"
+            },
+            {
+              "propertyKey": "CategoryValue",
+              "propertyValue": "Germany"
+            }
+          ],
+          "geometry": {
+            "type": "Point",
+            "coordinates": [10.4515, 51.1657]
+          },
+          "children": [
+            {
+              "id": "dc-frankfurt-1",
+              "label": "Frankfurt DC-1",
+              "properties": [
+                {
+                  "propertyKey": "CategoryName",
+                  "propertyValue": "Datacentre"
+                },
+                {
+                  "propertyKey": "CategoryValue",
+                  "propertyValue": "Frankfurt DC-1"
+                },
+                {
+                  "propertyKey": "Status",
+                  "propertyValue": "Active"
+                }
+              ],
+              "geometry": {
+                "type": "Point",
+                "coordinates": [8.6821, 50.1109]
+              }
+            },
+            {
+              "id": "dc-frankfurt-2",
+              "label": "Frankfurt DC-2",
+              "properties": [
+                {
+                  "propertyKey": "CategoryName",
+                  "propertyValue": "Datacentre"
+                },
+                {
+                  "propertyKey": "CategoryValue",
+                  "propertyValue": "Frankfurt DC-2"
+                },
+                {
+                  "propertyKey": "Status",
+                  "propertyValue": "Active"
+                }
+              ],
+              "geometry": {
+                "type": "Point",
+                "coordinates": [8.72, 50.13]
+              }
+            },
+            {
+              "id": "dc-munich",
+              "label": "Munich DC",
+              "properties": [
+                {
+                  "propertyKey": "CategoryName",
+                  "propertyValue": "Datacentre"
+                },
+                {
+                  "propertyKey": "CategoryValue",
+                  "propertyValue": "Munich DC"
+                },
+                {
+                  "propertyKey": "Status",
+                  "propertyValue": "Active"
+                }
+              ],
+              "geometry": {
+                "type": "Point",
+                "coordinates": [11.5819, 48.1351]
+              }
+            }
+          ]
+        },
+        {
+          "id": "country-uk",
+          "label": "United Kingdom",
+          "properties": [
+            {
+              "propertyKey": "CategoryName",
+              "propertyValue": "Location"
+            },
+            {
+              "propertyKey": "CategoryValue",
+              "propertyValue": "United Kingdom"
+            }
+          ],
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-1.1743, 52.3555]
+          },
+          "children": [
+            {
+              "id": "dc-london-1",
+              "label": "London DC-1",
+              "properties": [
+                {
+                  "propertyKey": "CategoryName",
+                  "propertyValue": "Datacentre"
+                },
+                {
+                  "propertyKey": "CategoryValue",
+                  "propertyValue": "London DC-1"
+                },
+                {
+                  "propertyKey": "Status",
+                  "propertyValue": "Active"
+                }
+              ],
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-0.1276, 51.5074]
+              }
+            },
+            {
+              "id": "dc-london-2",
+              "label": "London DC-2",
+              "properties": [
+                {
+                  "propertyKey": "CategoryName",
+                  "propertyValue": "Datacentre"
+                },
+                {
+                  "propertyKey": "CategoryValue",
+                  "propertyValue": "London DC-2"
+                },
+                {
+                  "propertyKey": "Status",
+                  "propertyValue": "Active"
+                }
+              ],
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-0.09, 51.52]
+              }
+            }
+          ]
+        },
+        {
+          "id": "country-netherlands",
+          "label": "Netherlands",
+          "properties": [
+            {
+              "propertyKey": "CategoryName",
+              "propertyValue": "Location"
+            },
+            {
+              "propertyKey": "CategoryValue",
+              "propertyValue": "Netherlands"
+            }
+          ],
+          "geometry": {
+            "type": "Point",
+            "coordinates": [5.2913, 52.1326]
+          },
+          "children": [
+            {
+              "id": "dc-amsterdam",
+              "label": "Amsterdam DC",
+              "properties": [
+                {
+                  "propertyKey": "CategoryName",
+                  "propertyValue": "Datacentre"
+                },
+                {
+                  "propertyKey": "CategoryValue",
+                  "propertyValue": "Amsterdam DC"
+                },
+                {
+                  "propertyKey": "Status",
+                  "propertyValue": "Active"
+                }
+              ],
+              "geometry": {
+                "type": "Point",
+                "coordinates": [4.9041, 52.3676]
+              }
+            }
+          ]
+        },
+        {
+          "id": "country-france",
+          "label": "France",
+          "properties": [
+            {
+              "propertyKey": "CategoryName",
+              "propertyValue": "Location"
+            },
+            {
+              "propertyKey": "CategoryValue",
+              "propertyValue": "France"
+            }
+          ],
+          "geometry": {
+            "type": "Point",
+            "coordinates": [2.2137, 46.2276]
+          },
+          "children": [
+            {
+              "id": "dc-paris",
+              "label": "Paris DC",
+              "properties": [
+                {
+                  "propertyKey": "CategoryName",
+                  "propertyValue": "Datacentre"
+                },
+                {
+                  "propertyKey": "CategoryValue",
+                  "propertyValue": "Paris DC"
+                },
+                {
+                  "propertyKey": "Status",
+                  "propertyValue": "Active"
+                }
+              ],
+              "geometry": {
+                "type": "Point",
+                "coordinates": [2.3522, 48.8566]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "continent-northamerica",
+      "label": "North America",
+      "properties": [
+        {
+          "propertyKey": "CategoryName",
+          "propertyValue": "Region"
+        },
+        {
+          "propertyKey": "CategoryValue",
+          "propertyValue": "North America"
+        }
+      ],
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-100.0, 40.0]
+      },
+      "children": [
+        {
+          "id": "country-usa",
+          "label": "United States",
+          "properties": [
+            {
+              "propertyKey": "CategoryName",
+              "propertyValue": "Location"
+            },
+            {
+              "propertyKey": "CategoryValue",
+              "propertyValue": "United States"
+            }
+          ],
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-95.7129, 37.0902]
+          },
+          "children": [
+            {
+              "id": "dc-virginia-1",
+              "label": "Virginia DC-1",
+              "properties": [
+                {
+                  "propertyKey": "CategoryName",
+                  "propertyValue": "Datacentre"
+                },
+                {
+                  "propertyKey": "CategoryValue",
+                  "propertyValue": "Virginia DC-1"
+                },
+                {
+                  "propertyKey": "Status",
+                  "propertyValue": "Active"
+                }
+              ],
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-77.4605, 39.0438]
+              }
+            },
+            {
+              "id": "dc-virginia-2",
+              "label": "Virginia DC-2",
+              "properties": [
+                {
+                  "propertyKey": "CategoryName",
+                  "propertyValue": "Datacentre"
+                },
+                {
+                  "propertyKey": "CategoryValue",
+                  "propertyValue": "Virginia DC-2"
+                },
+                {
+                  "propertyKey": "Status",
+                  "propertyValue": "Active"
+                }
+              ],
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-77.5, 39.1]
+              }
+            },
+            {
+              "id": "dc-oregon",
+              "label": "Oregon DC",
+              "properties": [
+                {
+                  "propertyKey": "CategoryName",
+                  "propertyValue": "Datacentre"
+                },
+                {
+                  "propertyKey": "CategoryValue",
+                  "propertyValue": "Oregon DC"
+                },
+                {
+                  "propertyKey": "Status",
+                  "propertyValue": "Active"
+                }
+              ],
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-120.5542, 43.8041]
+              }
+            },
+            {
+              "id": "dc-california-1",
+              "label": "California DC-1",
+              "properties": [
+                {
+                  "propertyKey": "CategoryName",
+                  "propertyValue": "Datacentre"
+                },
+                {
+                  "propertyKey": "CategoryValue",
+                  "propertyValue": "California DC-1"
+                },
+                {
+                  "propertyKey": "Status",
+                  "propertyValue": "Active"
+                }
+              ],
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-122.4194, 37.7749]
+              }
+            },
+            {
+              "id": "dc-california-2",
+              "label": "California DC-2",
+              "properties": [
+                {
+                  "propertyKey": "CategoryName",
+                  "propertyValue": "Datacentre"
+                },
+                {
+                  "propertyKey": "CategoryValue",
+                  "propertyValue": "California DC-2"
+                },
+                {
+                  "propertyKey": "Status",
+                  "propertyValue": "Active"
+                }
+              ],
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-121.8863, 37.3382]
+              }
+            },
+            {
+              "id": "dc-texas",
+              "label": "Texas DC",
+              "properties": [
+                {
+                  "propertyKey": "CategoryName",
+                  "propertyValue": "Datacentre"
+                },
+                {
+                  "propertyKey": "CategoryValue",
+                  "propertyValue": "Texas DC"
+                },
+                {
+                  "propertyKey": "Status",
+                  "propertyValue": "Active"
+                }
+              ],
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-97.7431, 30.2672]
+              }
+            }
+          ]
+        },
+        {
+          "id": "country-canada",
+          "label": "Canada",
+          "properties": [
+            {
+              "propertyKey": "CategoryName",
+              "propertyValue": "Location"
+            },
+            {
+              "propertyKey": "CategoryValue",
+              "propertyValue": "Canada"
+            }
+          ],
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-106.3468, 56.1304]
+          },
+          "children": [
+            {
+              "id": "dc-montreal",
+              "label": "Montreal DC",
+              "properties": [
+                {
+                  "propertyKey": "CategoryName",
+                  "propertyValue": "Datacentre"
+                },
+                {
+                  "propertyKey": "CategoryValue",
+                  "propertyValue": "Montreal DC"
+                },
+                {
+                  "propertyKey": "Status",
+                  "propertyValue": "Active"
+                }
+              ],
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-73.5673, 45.5017]
+              }
+            },
+            {
+              "id": "dc-toronto",
+              "label": "Toronto DC",
+              "properties": [
+                {
+                  "propertyKey": "CategoryName",
+                  "propertyValue": "Datacentre"
+                },
+                {
+                  "propertyKey": "CategoryValue",
+                  "propertyValue": "Toronto DC"
+                },
+                {
+                  "propertyKey": "Status",
+                  "propertyValue": "Active"
+                }
+              ],
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-79.3832, 43.6532]
+              }
+            }
+          ]
+        },
+        {
+          "id": "country-brazil",
+          "label": "Brazil",
+          "properties": [
+            {
+              "propertyKey": "CategoryName",
+              "propertyValue": "Location"
+            },
+            {
+              "propertyKey": "CategoryValue",
+              "propertyValue": "Brazil"
+            }
+          ],
+          "geometry": {
+            "type": "Point",
+            "coordinates": [-51.9253, -14.235]
+          },
+          "children": [
+            {
+              "id": "dc-saopaulo",
+              "label": "São Paulo DC",
+              "properties": [
+                {
+                  "propertyKey": "CategoryName",
+                  "propertyValue": "Datacentre"
+                },
+                {
+                  "propertyKey": "CategoryValue",
+                  "propertyValue": "São Paulo DC"
+                },
+                {
+                  "propertyKey": "Status",
+                  "propertyValue": "Active"
+                }
+              ],
+              "geometry": {
+                "type": "Point",
+                "coordinates": [-46.6333, -23.5505]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+

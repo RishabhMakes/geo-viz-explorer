@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geo Visualization Widget - Infrastructure Monitor</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header class="app-header">
+            <h1>Infrastructure Global Distribution</h1>
+            <p class="subtitle">Datacenter & Resource Monitoring</p>
+        </header>
+        
+        <div id="geo-map-container" class="geo-map-container">
+            <!-- D3 map will be rendered here -->
+        </div>
+        
+        <!-- Filter Controls -->
+        <div class="filter-controls">
+            <button class="view-toggle" id="viewToggle" aria-label="Toggle view">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+            </button>
+            
+            <div class="filter-group">
+                <label for="regionFilter">Region</label>
+                <select id="regionFilter" class="filter-select" aria-label="Filter by region">
+                    <option value="All">All</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="locationFilter">Location</label>
+                <select id="locationFilter" class="filter-select" aria-label="Filter by location">
+                    <option value="All">All</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="datacentreFilter">Datacentre</label>
+                <select id="datacentreFilter" class="filter-select" aria-label="Filter by datacentre">
+                    <option value="All">All</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- Selection Info Panel -->
+        <div class="selection-info" id="selectionInfo" aria-live="polite">
+            <span class="selection-count">0 selected</span>
+            <button class="clear-selection" id="clearSelection" style="display: none;">Clear</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="utils/dataProcessing.js"></script>
+    <script src="utils/projection.js"></script>
+    <script src="utils/selection.js"></script>
+    <script src="geoMap.js"></script>
+    <script src="test-utils.js"></script>
+    <script>
+        // Initialize the widget when DOM is ready
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                // Load sample data
+                const response = await fetch('data/sample-data.json');
+                const geoLocationData = await response.json();
+                
+                // Initialize the widget
+                const geoWidget = new GeoMapWidget({
+                    container: '#geo-map-container',
+                    data: geoLocationData,
+                    width: null, // Auto-size to container
+                    height: 600,
+                    debug: true,
+                    onMarkerClick: (location, isSelected) => {
+                        console.log('Marker clicked:', location.label, 'Selected:', isSelected);
+                    },
+                    onMarkerDoubleClick: (location) => {
+                        console.log('Zooming to:', location.label);
+                    },
+                    onSelectionChange: (selectedMarkers) => {
+                        console.log('Selection changed:', selectedMarkers.map(m => m.label));
+                        updateSelectionUI(selectedMarkers);
+                    },
+                    onZoomLevelChange: (level) => {
+                        console.log('Zoom level changed:', level);
+                    },
+                    onFilterChange: (filters) => {
+                        console.log('Filters changed:', filters);
+                    },
+                    maxSelections: 10
+                });
+                
+                // Make widget globally accessible for debugging
+                window.geoWidget = geoWidget;
+                
+                // Setup filter event listeners
+                setupFilterListeners(geoWidget);
+                
+                // Setup clear selection button
+                document.getElementById('clearSelection').addEventListener('click', () => {
+                    geoWidget.clearSelection();
+                });
+                
+            } catch (error) {
+                console.error('Failed to initialize GeoMapWidget:', error);
+                document.getElementById('geo-map-container').innerHTML = 
+                    '<div class="error-message">Failed to load map data. Please try again.</div>';
+            }
+        });
+        
+        function updateSelectionUI(selectedMarkers) {
+            const countEl = document.querySelector('.selection-count');
+            const clearBtn = document.getElementById('clearSelection');
+            
+            countEl.textContent = `${selectedMarkers.length} selected`;
+            clearBtn.style.display = selectedMarkers.length > 0 ? 'inline-block' : 'none';
+        }
+        
+        function setupFilterListeners(widget) {
+            const regionFilter = document.getElementById('regionFilter');
+            const locationFilter = document.getElementById('locationFilter');
+            const datacentreFilter = document.getElementById('datacentreFilter');
+            
+            regionFilter.addEventListener('change', () => {
+                widget.applyFilters({
+                    region: regionFilter.value,
+                    location: locationFilter.value,
+                    datacentre: datacentreFilter.value
+                });
+            });
+            
+            locationFilter.addEventListener('change', () => {
+                widget.applyFilters({
+                    region: regionFilter.value,
+                    location: locationFilter.value,
+                    datacentre: datacentreFilter.value
+                });
+            });
+            
+            datacentreFilter.addEventListener('change', () => {
+                widget.applyFilters({
+                    region: regionFilter.value,
+                    location: locationFilter.value,
+                    datacentre: datacentreFilter.value
+                });
+            });
+        }
+    </script>
+</body>
+</html>
+
