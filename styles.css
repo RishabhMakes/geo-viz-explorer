@@ -798,3 +798,305 @@ body {
     transition: opacity 300ms;
 }
 
+/* ============================================
+   Interaction Guide Section
+   ============================================ */
+
+.interaction-guide {
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-xl);
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(30, 41, 59, 0.8) 100%);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.interaction-guide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--marker-continent), var(--marker-country), var(--marker-city), var(--color-primary));
+}
+
+.guide-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.guide-header h2 {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-family: var(--font-primary);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.3px;
+}
+
+.guide-header h2 svg {
+    color: var(--color-primary-light);
+}
+
+.guide-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: var(--spacing-xs);
+}
+
+/* Interaction Cards Grid */
+.interaction-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.interaction-card {
+    display: flex;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-normal);
+}
+
+.interaction-card:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Card Icons */
+.card-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.card-icon svg {
+    transition: transform var(--transition-fast);
+}
+
+.interaction-card:hover .card-icon svg {
+    transform: scale(1.1);
+}
+
+.click-icon {
+    color: var(--marker-continent);
+}
+
+.double-click-icon {
+    color: var(--marker-country);
+}
+
+.multi-select-icon {
+    color: var(--marker-city);
+}
+
+.zoom-icon {
+    color: var(--color-primary-light);
+}
+
+/* Card Content */
+.card-content h3 {
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.card-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card-content li {
+    position: relative;
+    padding-left: 1.25rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-xs);
+}
+
+.card-content li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary-light);
+    font-weight: 600;
+}
+
+.card-content li strong {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* Card Example */
+.card-example {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: rgba(37, 99, 235, 0.1);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--color-primary);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.example-label {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    color: var(--color-primary-light);
+    text-transform: uppercase;
+    font-size: 0.65rem;
+    letter-spacing: 0.5px;
+    margin-right: var(--spacing-xs);
+}
+
+/* Keyboard Key Styling */
+kbd {
+    display: inline-block;
+    padding: 2px 6px;
+    font-family: var(--font-primary);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 2px 0 var(--border-color);
+    margin: 0 2px;
+}
+
+/* Hierarchy Legend */
+.hierarchy-legend {
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--border-color);
+}
+
+.hierarchy-legend h3 {
+    font-family: var(--font-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.legend-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-color);
+}
+
+.legend-marker {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid currentColor;
+}
+
+.legend-marker.continent {
+    background: var(--marker-continent);
+    border-color: rgba(245, 158, 11, 0.5);
+}
+
+.legend-marker.country {
+    background: var(--marker-country);
+    border-color: rgba(16, 185, 129, 0.5);
+}
+
+.legend-marker.city {
+    background: var(--marker-city);
+    border-color: rgba(139, 92, 246, 0.5);
+}
+
+.legend-label {
+    font-family: var(--font-primary);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.legend-arrow {
+    color: var(--text-muted);
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+/* Responsive adjustments for Interaction Guide */
+@media (max-width: 767px) {
+    .interaction-guide {
+        padding: var(--spacing-lg);
+        margin-top: var(--spacing-lg);
+    }
+
+    .guide-header h2 {
+        font-size: 1.1rem;
+    }
+
+    .interaction-cards {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .interaction-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .card-icon {
+        margin: 0 auto;
+    }
+
+    .card-content li {
+        text-align: left;
+    }
+
+    .legend-items {
+        flex-direction: column;
+    }
+
+    .legend-arrow {
+        transform: rotate(90deg);
+    }
+}
+
+@media (max-width: 480px) {
+    .interaction-guide {
+        padding: var(--spacing-md);
+    }
+
+    .card-content li {
+        font-size: 0.8rem;
+    }
+}
+
